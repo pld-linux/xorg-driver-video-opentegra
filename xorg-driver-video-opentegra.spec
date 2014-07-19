@@ -22,12 +22,11 @@ BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-util-util-macros >= 1.8
-BuildRequires:	xorg-xserver-server-devel
-# >= 1.16 for output class config
+BuildRequires:	xorg-xserver-server-devel >= 1.16
 BuildRequires:	xz
 %{?requires_xorg_xserver_videodrv}
 Requires:	libdrm >= 2.2
-Requires:	xorg-xserver-server
+Requires:	xorg-xserver-server >= 1.16
 Provides:	xorg-driver-video
 ExclusiveArch:	arm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,4 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog README
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/opentegra_drv.so
+%{_datadir}/X11/xorg.conf.d/opentegra.conf
 %{_mandir}/man4/opentegra.4*
